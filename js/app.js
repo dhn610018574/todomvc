@@ -75,6 +75,16 @@
 					if(todo.isCompleted) return true;
 				})
 			};
+			//7.显示未完成的任务数
+			vm.getUnCompletedCount = function(){
+				var count = 0;
+				todoList.forEach(function(todo){
+					if( !todo.isCompleted ){
+						count++;
+					}
+				});
+				return count;
+			};
 
 
 		}
