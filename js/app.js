@@ -18,11 +18,9 @@
 			vm.add = function(){
 				if(vm.taskName.trim() === '') return;
 				var id;
-				if(todoList.length === 0 ){
-					id = 1;
-				}else{
-					id = todoList[ todoList.length - 1 ].id + 1;
-				}
+				if(todoList.length === 0 ) id = 1;
+				else id = todoList[ todoList.length - 1 ].id + 1;
+				
 				todoList.push({id:id,name:vm.taskName,isCompleted:false});
 				vm.taskName = '';
 			};
@@ -67,6 +65,12 @@
 					}
 				}
 				vm.todoList = tempArr;
+			};
+			// 清除任务按钮的显示与隐藏
+			vm.isShow = function(){
+				return todoList.some(function(todo){
+					if(todo.isCompleted) return true;
+				})
 			}
 
 
