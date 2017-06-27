@@ -85,6 +85,17 @@
 				});
 				return count;
 			};
+			// 8.显示不同状态的任务，任务高亮
+			vm.status = undefined;
+			vm.showAll = function(){
+				vm.status = undefined;
+			};
+			vm.showActive = function(){
+				vm.status = false;
+			};
+			vm.showCompleted = function(){
+				vm.status = true;
+			};
 
 
 		}
