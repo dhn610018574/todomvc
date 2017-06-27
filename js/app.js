@@ -38,6 +38,8 @@
 			};
 
 			//4.修改任务
+			// 数据双向绑定，处理editingId即可
+			// 确定是否添加editing类，判断todo.id === editingId是否成立
 			vm.editingId = 0;
 			vm.edit = function(id){
 				vm.editingId = id;
@@ -45,8 +47,16 @@
 			//更新数据
 			vm.update = function(){
 				vm.editingId = 0;
-			}
+			};
 
-		};
+			// 5.切换任务选择状态（单个或者批量）
+			// 单个的已经通过数据绑定实现了，只需要批量的
+			vm.isCheckAll = false;
+			vm.checkAll = function(){
+				todoList.forEach(function(todo){
+					todo.isCompleted = vm.isCheckAll;
+				});
+			};
+		}
 	
 }(angular);
