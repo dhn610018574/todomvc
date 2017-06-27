@@ -35,8 +35,18 @@
 						break;
 					}
 				}
+			};
 
+			//4.修改任务
+			vm.editingId = 0;
+			vm.edit = function(id){
+				vm.editingId = id;
 			}
+			//更新数据
+			vm.update = function(){
+				vm.editingId = 0;
+			}
+
 		};
 	
 }(angular);
