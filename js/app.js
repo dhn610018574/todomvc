@@ -57,6 +57,19 @@
 					todo.isCompleted = vm.isCheckAll;
 				});
 			};
+			//6.清除已完成任务
+			vm.clearCompleted = function(){
+				var tempArr = [];
+				for(var i = 0; i < todoList.length; i++){
+					var todo = todoList[i];
+					if(!todo.isCompleted){
+						tempArr.push(todo);
+					}
+				}
+				vm.todoList = tempArr;
+			}
+
+
 		}
 	
 }(angular);
